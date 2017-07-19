@@ -4,6 +4,7 @@
   "description": "simple book store",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "nyc mocha test/*.js"
   },
   "repository": {
