@@ -13,6 +13,10 @@ app.get('/', (request, response) => {
   response.render('index')
 })
 
+app.get('/search', (request, response) => {
+  response.render('views/search')
+})
+
 const port = 3000
 app.listen(port, () => {
   console.log('Book Store server running on port ' + port)
