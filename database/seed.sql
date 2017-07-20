@@ -12,13 +12,11 @@ FROM '/Users/koppel/Documents/LG/lgProjects/Simple-Book-Store/database/books.csv
 
 START TRANSACTION 
 
-DECLARE bookKey INTEGER;
+DECLARE bookKey INTEGER, authorKey INTEGER;
 
-INSERT INTO book(title, genre) SELECT title,genre FROM temp_table RETURNING book_id INTO bookKey;
+INSERT INTO book(title, genre) SELECT title,genre FROM temp_table RETURNING id INTO bookKey;
 
-DECLARE authorKey INTEGER;
-
-INSERT INTO author(first_name, last_name) SELECT first_name, last_name FROM temp_table GROUP BY first_name, last_name RETURNING author_id INTO authorKey;
+INSERT INTO author(first_name, last_name) SELECT first_name, last_name FROM temp_table GROUP BY first_name, last_name RETURNING id INTO authorKey;
 
 INSERT INTO book_author(book_id, author_id) VALUES (bookKey, authorKey);
 
