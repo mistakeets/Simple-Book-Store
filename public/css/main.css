@@ -9,3 +9,7 @@ body {
   height: 60px;
   line-height: 60px;
 }
+
+.lspace {
+  margin-left: 10px;
+}
