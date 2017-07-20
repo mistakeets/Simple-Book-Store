@@ -14,7 +14,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/search', (request, response) => {
-  response.render('views/search')
+  response.render('search')
 })
 
 const port = 3000
