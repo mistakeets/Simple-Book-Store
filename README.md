@@ -1,5 +1,12 @@
 # Simple Book Store
 
+## Install Instructions
+
+- Clone Repo
+- npm install
+- npm start
+- psql (schema.sql to initalize the database, and seed.sql to populate data)
+
 ## Skills
 
 - Can build a RESTful API using Express
