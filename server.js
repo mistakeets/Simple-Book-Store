@@ -2,24 +2,14 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 const bodyParser = require('body-parser')
+const routes = require('./server/routes')
 
 app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-
-app.get('/', (request, response) => {
-  response.render('index')
-})
-
-app.get('/search', (request, response) => {
-  response.render('search')
-})
-
-app.get('/admin', (request, response) => {
-  response.render('admin')
-})
+app.use('/', routes)
 
 const port = 3000
 app.listen(port, () => {
