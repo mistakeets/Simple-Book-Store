@@ -11,14 +11,6 @@ CREATE TEMPORARY TABLE temp_table (
 COPY temp_table(title,last_name,first_name, genre)
 FROM '/Users/koppel/Documents/LG/lgProjects/Simple-Book-Store/database/books.csv' DELIMITER ',' CSV HEADER;
 
--- INSERT INTO book(title, genre) SELECT title,genre FROM temp_table;
-
--- INSERT INTO author(first_name, last_name) SELECT first_name, last_name FROM temp_table GROUP BY first_name, last_name;
-
--- INSERT INTO book_author(book_id, author_id) SELECT * FROM book b inner join temp_table t on b.title = tt.title inner join author a on a.first_name = tt.author;
-
--- DROP TABLE temp_table;
-
 CREATE FUNCTION pg_temp.foo() returns void AS $$
 DECLARE
   temp_table_row RECORD;
