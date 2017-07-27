@@ -15,7 +15,12 @@ router.get('/admin', (request, response) => {
 })
 
 router.post('/addBook', (request, response, done) => {
-  books.addBook(request.body.name)
+  const title = request.body.title
+  const firstName = request.body.firstName
+  const lastName = request.body.lastName
+  const genre = request.body.genre
+
+  books.addBook(title, firstName, lastName, genre)
     .then(() => {
       response.redirect('/admin')
       done()
