@@ -8,12 +8,14 @@ const addBook = (title, firstName, lastName, genre) => {
       ])
     })
     .then(data => {
-      console.log('DO WE HAVE DATA??', data)
-      return db.oneOrNone('INSERT INTO book_author(book_id, author_id) VALUES (data[0].id, data[1].id)')
+      const bookID = data[0].id
+      const authorID = data[1].id
+      return db.none('INSERT INTO book_author(book_id, author_id) VALUES ($1, $2)', [bookID, authorID])
+    })
+    .catch(error => {
+      console.log('ERROR:', error)
     })
 }
-
-
 
 module.exports = {
   addBook
