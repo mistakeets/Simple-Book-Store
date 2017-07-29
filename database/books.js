@@ -17,6 +17,13 @@ const addBook = (title, firstName, lastName, genre) => {
     })
 }
 
+const findByTitle = (title) => {
+  return db.any('SELECT * FROM book WHERE title = $1', [title])
+}
+
+
+
 module.exports = {
-  addBook
+  addBook,
+  findByTitle
 }
