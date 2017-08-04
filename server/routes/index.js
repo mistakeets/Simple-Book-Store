@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const pgPromise = require('pg-promise')
+
 const admin = require('./admin')
 const search = require('./search')
 

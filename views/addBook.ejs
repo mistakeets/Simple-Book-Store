@@ -2,7 +2,8 @@
 
   <br>
   <div class="card text-center lspace rspace">
-    <form method="post" action="addBook">
+    <form method="post" action="/admin">
+
       <h3 class="card-header">Add a Book</h3>
       <div class="card-block">
         <div class="form-group row">
@@ -11,18 +12,21 @@
             <input class="form-control" type="text" name="title">
           </div>
         </div>
+
         <div class="form-group row">
           <label for="authorFirst-add-input" class="col-2 col-form-label">Author First Name</label>
           <div class="col-10">
             <input class="form-control" type="text" name="firstName">
           </div>
         </div>
+
         <div class="form-group row">
           <label for="authorLast-add-input" class="col-2 col-form-label">Author Last Name</label>
           <div class="col-10">
             <input class="form-control" type="text" name="lastName">
           </div>
         </div>
+
         <div class="form-group row">
           <label for="genre-add-input" class="col-2 col-form-label">Genre</label>
           <div class="col-10">
@@ -30,8 +34,7 @@
           </div>
         </div>
 
-
-        <button class="btn btn-success">Add Book</button>
+        <input class="btn btn-success" type="submit" name="submit" value="Add Book">
       </div>
     </form>
   </div>

@@ -1,6 +1,6 @@
 const db = require('./db')
 
-const addBook = (title, firstName, lastName, genre) => {
+const addBook = ({ title, firstName, lastName, genre }) => {
   return db.tx(t => {
       return t.batch([
         t.one('INSERT INTO book(title, genre) VALUES($1, $2) RETURNING id', [title, genre]),
@@ -20,8 +20,6 @@ const addBook = (title, firstName, lastName, genre) => {
 const findByTitle = (title) => {
   return db.any('SELECT * FROM book WHERE title = $1', [title])
 }
-
-
 
 module.exports = {
   addBook,
