@@ -7,9 +7,9 @@ const addBook = ({ title, firstName, lastName, genre }) => {
         t.one('INSERT INTO author(first_name, last_name) VALUES($1, $2) RETURNING id', [firstName, lastName])
       ])
     })
-    .then(data => {
-      const bookID = data[0].id
-      const authorID = data[1].id
+    .then(bookData => {
+      const bookID = bookData[0].id
+      const authorID = bookData[1].id
       return db.none('INSERT INTO book_author(book_id, author_id) VALUES ($1, $2)', [bookID, authorID])
     })
     .catch(error => {
