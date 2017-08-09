@@ -1,20 +1,17 @@
 const router = require('express').Router()
+const books = require('../../database/books')
 
 router.get('/', (request, response) => {
   response.render('search')
 })
 
-router.post('/findByTitle', (request, response, done) => {
+router.post('/results', (request, response, done) => {
   const title = request.body.title
   books.findByTitle(title)
     .then(() => {
-      response.redirect('/searchResults')
+      response.render('results')
       done()
     })
-})
-
-router.get('/searchResults', (request, response) => {
-  response.render('searchResults')
 })
 
 module.exports = router
