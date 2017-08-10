@@ -7,7 +7,7 @@ router.get('/:bookId', (request, response, next) => {
     return next()
   }
   books.getBook(bookId)
-    .then(function(book) {
+    .then(book => {
       if (book) {
         return response.render('singleBook', { book })
       }

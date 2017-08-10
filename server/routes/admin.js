@@ -8,7 +8,7 @@ router.get('/addBook', (request, response) => {
 router.post('/', (request, response, done) => {
   books.addBook(request.body)
     .then(() => {
-      response.render('./index')
+      response.redirect('/')
       done()
     })
 })
