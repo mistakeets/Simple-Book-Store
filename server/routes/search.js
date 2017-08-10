@@ -8,9 +8,13 @@ router.get('/', (request, response) => {
 router.post('/results', (request, response, done) => {
   const title = request.body.title
   books.findByTitle(title)
-    .then(() => {
-      response.render('results')
-      done()
+    .then(books => {
+      if (books) {
+        return response.render('results', { books })
+      }
+    })
+    .catch(error => {
+      console.log(error, response)
     })
 })
 

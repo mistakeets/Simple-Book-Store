@@ -1,5 +1,17 @@
-<% include partials/header %>
+<%- include partials/header.ejs %>
 
-  <p class="text-center">Search Results forEach goes here</p>
+  <div class="book-list">
+    <ul>
+      <% books.forEach(function(book){ %>
+        <a class="book-link" href="/book/<%= book.id %>">
+          <li>
+            <%= book.title %>&nbsp</li>
 
-  <% include partials/footer %>
+          <%= book.genre %>
+
+        </a>
+        <% }) %>
+    </ul>
+  </div>
+
+  <%- include partials/footer.ejs %>

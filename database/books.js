@@ -26,7 +26,7 @@ const getAllBooks = () => {
 }
 
 const findByTitle = (title) => {
-  return db.query('SELECT * FROM book WHERE title LIKE $1', [title])
+  return db.query('SELECT * FROM book WHERE lower(title) LIKE $1', [`%${title.toLowerCase()}%`])
 }
 
 module.exports = {
