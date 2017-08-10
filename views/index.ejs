@@ -1,4 +1,17 @@
 <%- include partials/header.ejs %>
 
+  <div class="book-list">
+    <ul>
+      <% books.forEach(function(book){ %>
+        <a class="book-link" href="/book/<%= book.id %>">
+          <li>
+            <%= book.title %>&nbsp</li>
+
+          <%= book.genre %>
+
+        </a>
+        <% }) %>
+    </ul>
+  </div>
 
   <%- include partials/footer.ejs %>

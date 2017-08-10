@@ -17,11 +17,21 @@ const addBook = ({ title, firstName, lastName, genre }) => {
     })
 }
 
+const getBook = (id) => {
+  return db.one('SELECT * FROM book WHERE id=$1', [id])
+}
+
+const getAllBooks = () => {
+  return db.query('SELECT * FROM book', [])
+}
+
 const findByTitle = (title) => {
-  return db.any('SELECT * FROM book WHERE title = $1', [title])
+  return db.query('SELECT * FROM book WHERE title LIKE $1', [title])
 }
 
 module.exports = {
   addBook,
+  getBook,
+  getAllBooks,
   findByTitle
 }
