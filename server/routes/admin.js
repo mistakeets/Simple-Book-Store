@@ -1,19 +1,14 @@
 const router = require('express').Router()
 const books = require('../../database/books')
 
-router.get('/', (request, response) => {
-  response.render('admin')
+router.get('/addBook', (request, response) => {
+  response.render('addBook')
 })
 
-router.post('/addBook', (request, response, done) => {
-  const title = request.body.title
-  const firstName = request.body.firstName
-  const lastName = request.body.lastName
-  const genre = request.body.genre
-
-  books.addBook(title, firstName, lastName, genre)
+router.post('/', (request, response, done) => {
+  books.addBook(request.body)
     .then(() => {
-      response.redirect('/admin')
+      response.render('./index')
       done()
     })
 })

@@ -6,38 +6,38 @@
     <h3 class="card-header">Search for Books</h3>
     <div class="card-block">
 
-      <form method="post" action="/findbyTitle">
+      <form method="post" action="/search/results">
         <div class="form-group row">
           <label for="title-search-input" class="col-2 col-form-label">Book Title</label>
           <div class="col-8">
             <input class="form-control" type="search" name="title">
           </div>
           <div class="col">
-            <button class="btn btn-success">Find by Title</button>
+            <input class="btn btn-success" type="submit" value="Find by Title">
           </div>
         </div>
       </form>
 
-      <form method="post" action="/findbyAuthor">
+      <form method="post" action="/search">
         <div class="form-group row">
           <label for="author-search-input" class="col-2 col-form-label">Author Last Name</label>
           <div class="col-8">
             <input class="form-control" type="search" name="searchAuthor">
           </div>
           <div class="col">
-            <button class="btn btn-success">Find by Author</button>
+            <input class="btn btn-success" type="submit" value="Find by Author">
           </div>
         </div>
       </form>
 
-      <form method="post" action="/findbyGenre">
+      <form method="post" action="/search">
         <div class="form-group row">
           <label for="genre-search-input" class="col-2 col-form-label">Genre</label>
           <div class="col-8">
             <input class="form-control" type="search" name="searchGenre">
           </div>
           <div class="col">
-            <button class="btn btn-success">Find by Genre</button>
+            <input class="btn btn-success" type="submit" value="Find by Genre">
           </div>
         </div>
       </form>
