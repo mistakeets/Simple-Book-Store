@@ -5,7 +5,8 @@
       <% books.forEach(function(book){ %>
         <a class="book-link" href="/book/<%= book.id %>">
           <li>
-            <%= book.title %>&nbsp</li>
+            <% console.log('from view', book) %>
+              <%= book.title %>&nbsp</li>
 
           <%= book.genre %>
 

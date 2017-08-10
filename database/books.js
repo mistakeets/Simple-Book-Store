@@ -29,9 +29,14 @@ const findByTitle = (title) => {
   return db.query('SELECT * FROM book WHERE lower(title) LIKE $1', [`%${title.toLowerCase()}%`])
 }
 
+const findByAuthor = (author) => {
+  return db.query('SELECT * FROM author WHERE lower(last_name) LIKE $1', [`%${author.toLowerCase()}%`])
+}
+
 module.exports = {
   addBook,
   getBook,
   getAllBooks,
-  findByTitle
+  findByTitle,
+  findByAuthor
 }
